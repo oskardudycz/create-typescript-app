@@ -4,7 +4,7 @@
   "description": "Template for TypeScript project in NodeJS ",
   "main": "index.ts",
   "scripts": {
-    "build": "npm run build:ts",
+    "build": "npm run build:ts&& shx rm -rf dist/templates && shx cp -r src/templates dist",
     "build:ts": "tsc",
     "build:ts:watch": "tsc  --watch",
     "start": "ts-node src/index.ts",
@@ -22,6 +22,9 @@
       "pre-commit": "npm run lint"
     }
   },
+  "bin": {
+    "template-generator": "dist/index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/oskardudycz/typescript-app.git"
@@ -36,14 +39,16 @@
   },
   "homepage": "https://github.com/oskardudycz/typescript-app#readme",
   "dependencies": {
-    "dotenv": "^10.0.0",
-    "inquirer": "^8.1.2"
+    "ejs": "^3.1.6",
+    "inquirer": "^8.1.2",
+    "shelljs": "^0.8.4"
   },
   "devDependencies": {
-    "@types/dotenv": "^8.2.0",
+    "@types/ejs": "^3.0.7",
     "@types/inquirer": "^7.3.3",
     "@types/jest": "^26.0.21",
     "@types/node": "^14.17.9",
+    "@types/shelljs": "^0.8.9",
     "@typescript-eslint/eslint-plugin": "^4.17.0",
     "@typescript-eslint/parser": "^4.17.0",
     "eslint": "^7.21.0",
@@ -59,6 +64,7 @@
     "nodemon": "^2.0.7",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
+    "shx": "^0.3.3",
     "ts-jest": "^26.5.4",
     "ts-node": "^9.1.1",
     "tsconfig-paths": "^3.9.0",

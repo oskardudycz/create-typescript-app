@@ -1,5 +1,5 @@
 {
-  "name": "typescript-app",
+  "name": "<%= projectName %>",
   "version": "1.0.0",
   "license": "MIT"
 }
