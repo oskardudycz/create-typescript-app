@@ -1,0 +1,10 @@
+.editorconfig
+.eslintignore
+.eslintrc.json
+.gitattributes
+.github/
+.prettierrc.json
+.vscode/
+jest.config.js
+jest.setup.js
+tsconfig.json

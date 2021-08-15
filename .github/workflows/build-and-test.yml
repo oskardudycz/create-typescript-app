@@ -42,4 +42,4 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' && matrix.node-version == '16.x' }}
         run: npm publish --access public --ignore-scripts
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
