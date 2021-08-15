@@ -1,5 +1,5 @@
 {
-  "name": "typescript-app",
+  "name": "@oskardudycz/create-typescript-app",
   "version": "0.0.1",
   "description": "Template for TypeScript project in NodeJS ",
   "main": "index.ts",

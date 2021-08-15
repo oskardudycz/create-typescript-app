@@ -28,11 +28,18 @@ jobs:
         with:
           # use the node version defined in matrix above
           node-version: ${{ matrix.node-version }}
-      # install dependencies
-      - run: npm ci
-      # run linting (ESlint and Prettier)
-      - run: npm run lint
-      # run build
-      - run: npm run build
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install NPM Packages
+        run: npm ci
+      - name: Verify ESLint and Prettier
+        run: npm run lint
+      - name: Build
+        run: npm run build
       # run tests
       # - run: npm test
+      - name: Publish to NPM
+        continue-on-error: true
+        if: ${{ github.ref == 'refs/heads/main' && matrix.node-version == '16.x' }}
+        run: npm publish --access public --ignore-scripts
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
