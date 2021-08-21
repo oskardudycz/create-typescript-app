@@ -1,5 +1,62 @@
 {
   "name": "<%= projectName %>",
   "version": "1.0.0",
-  "license": "MIT"
+  "description": "<%= description %>",
+  "keywords": [],
+  "author": "<%= author %>",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm run build:ts",
+    "build:ts": "tsc",
+    "build:ts:watch": "tsc --watch",
+    "start": "ts-node -r tsconfig-paths/register ./src/index.ts",
+    "test": "run-s test:**",
+    "test:unit": "jest unit",
+    "test:int": "jest int",
+    "lint": "run-s lint:**",
+    "lint:prettier": "prettier --check \"**/**/!(*.d).{ts,json,md}\"",
+    "lint:eslint": "eslint **/*.ts",
+    "fix": "run-s fix:**",
+    "fix:prettier": "prettier --write \"**/**/!(*.d).{ts,json,md}\"",
+    "fix:eslint": "eslint **/*.ts --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "dependencies": {
+    "convict": "^6.1.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/convict": "^6.1.1",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.6.1",
+    "@types/supertest": "^2.0.11",
+    "@types/validator": "^13.6.3",
+    "@typescript-eslint/eslint-plugin": "^4.29.2",
+    "@typescript-eslint/parser": "^4.29.2",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "husky": "^4.3.8",
+    "jest": "^27.0.6",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.3.2",
+    "supertest": "^6.1.6",
+    "testcontainers": "^7.19.1",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.0",
+    "tsconfig-paths": "^3.10.1",
+    "typescript": "^4.3.5"
+  }
 }
