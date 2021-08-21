@@ -1,6 +1,6 @@
 {
   "name": "@oskardudycz/create-typescript-app",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Template for TypeScript project in NodeJS ",
   "main": "index.ts",
   "scripts": {
